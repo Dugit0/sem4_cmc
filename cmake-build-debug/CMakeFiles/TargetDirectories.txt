@@ -1,9 +1,0 @@
-/home/dmitry/My_files/IT/Sem4/code/cmake-build-debug/CMakeFiles/2-1.dir
-/home/dmitry/My_files/IT/Sem4/code/cmake-build-debug/CMakeFiles/2-2.dir
-/home/dmitry/My_files/IT/Sem4/code/cmake-build-debug/CMakeFiles/2-3.dir
-/home/dmitry/My_files/IT/Sem4/code/cmake-build-debug/CMakeFiles/2-4.dir
-/home/dmitry/My_files/IT/Sem4/code/cmake-build-debug/CMakeFiles/2-5.dir
-/home/dmitry/My_files/IT/Sem4/code/cmake-build-debug/CMakeFiles/2-6.dir
-/home/dmitry/My_files/IT/Sem4/code/cmake-build-debug/CMakeFiles/2-7.dir
-/home/dmitry/My_files/IT/Sem4/code/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/dmitry/My_files/IT/Sem4/code/cmake-build-debug/CMakeFiles/rebuild_cache.dir
