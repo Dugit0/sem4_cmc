@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.24)
 project(code)
 
 set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_FLAGS "-fsanitize=address,undefined,signed-integer-overflow,pointer-compare,pointer-subtract,leak,bounds,pointer-overflow -O2 -Wall -std=gnu++2b -lm")
+#set(CMAKE_CXX_FLAGS "-fsanitize=address,undefined,signed-integer-overflow,pointer-compare,pointer-subtract,leak,bounds,pointer-overflow -O2 -Wall -std=gnu++2b -lm")
+set(CMAKE_CXX_FLAGS "-O2 -Wall -std=gnu++2b -lm")
 
 #add_executable(1-1 contest01/1/1.cpp)
 #add_executable(1-2 contest01/2/2.cpp)
