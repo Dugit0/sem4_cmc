@@ -1,0 +1,33 @@
+cmake_minimum_required(VERSION 3.24)
+project(code)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_FLAGS "-fsanitize=address,undefined,signed-integer-overflow,pointer-compare,pointer-subtract,leak,bounds,pointer-overflow -O2 -Wall -std=gnu++2b -lm")
+
+#add_executable(1-1 contest01/1/1.cpp)
+#add_executable(1-2 contest01/2/2.cpp)
+#add_executable(1-3 contest01/3/3.cpp)
+#add_executable(1-4 contest01/4/4.cpp)
+#add_executable(1-5 contest01/5/5.cpp)
+#add_executable(1-6 contest01/6/6.cpp)
+
+add_executable(2-1 contest02/1/1.cpp)
+add_executable(2-2 contest02/2/2.cpp)
+add_executable(2-3 contest02/3/3.cpp)
+add_executable(2-4 contest02/4/4.cpp)
+add_executable(2-5 contest02/5/5.cpp)
+add_executable(2-6 contest02/6/6.cpp)
+add_executable(2-7 contest02/7/7.cpp)
+
+#add_executable(3-1 contest03/1/1.cpp)
+#add_executable(3-2 contest03/2/2.cpp)
+#add_executable(3-3 contest03/3/3.cpp)
+#add_executable(3-4 contest03/4/4.cpp)
+#add_executable(3-5 contest03/5/5.cpp)
+#add_executable(3-6 contest03/6/6.cpp)
+#
+#add_executable(4-1 contest04/1/1.cpp)
+#add_executable(4-2 contest04/2/2.cpp)
+#add_executable(4-3 contest04/3/3.cpp)
+#add_executable(4-4 contest04/4/4.cpp)
+#add_executable(4-5 contest04/5/5.cpp)

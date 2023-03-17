@@ -1,0 +1,114 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "code",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "2-1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-2-1-Debug-711311128465fec72648.json",
+					"name" : "2-1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "2-2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-2-2-Debug-2502ff21a99fb121de04.json",
+					"name" : "2-2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "2-3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-2-3-Debug-09a3f2cd79a791c12822.json",
+					"name" : "2-3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "2-4::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-2-4-Debug-71615c19566f9d7267cd.json",
+					"name" : "2-4",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "2-5::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-2-5-Debug-4b3918acb943cd74021b.json",
+					"name" : "2-5",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "2-6::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-2-6-Debug-7d5623f5c28fe99a1c00.json",
+					"name" : "2-6",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "2-7::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-2-7-Debug-619a566ed8698f3dca6b.json",
+					"name" : "2-7",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/dmitry/My_files/IT/Sem4/code/cmake-build-debug",
+		"source" : "/home/dmitry/My_files/IT/Sem4/code"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
