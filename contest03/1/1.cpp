@@ -19,7 +19,7 @@ namespace numbers
         {
             size_t sep = base.find(",");
             re_p = std::stod(base.substr(1, sep));
-            im_p = std::stod(base.substr(sep + 1, base.size()));
+            im_p = std::stod(base.substr(sep + 1, base.size() - 1));
         }
         double re() const
         {
@@ -113,7 +113,7 @@ int
 main()
 {
     numbers::complex z1;
-//    numbers::complex z2 = "(1,2)";
+    numbers::complex z2 = "(1,2)";
     numbers::complex A("(0.02,1.123)");
     A += A;
     A += A + A;
