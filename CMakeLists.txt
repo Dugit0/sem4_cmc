@@ -30,3 +30,10 @@ add_executable(3-1 contest03/1/1.cpp)
 #add_executable(4-3 contest04/3/3.cpp)
 #add_executable(4-4 contest04/4/4.cpp)
 #add_executable(4-5 contest04/5/5.cpp)
+
+add_executable(5-1 contest05/1/1.cpp)
+add_executable(5-2 contest05/2/2.cpp)
+add_executable(5-3 contest05/3/3.cpp)
+add_executable(5-4 contest05/4/4.cpp)
+add_executable(5-5 contest05/5/5.cpp)
+
