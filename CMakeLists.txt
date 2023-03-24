@@ -23,7 +23,7 @@ set(CMAKE_CXX_FLAGS "-fsanitize=address,undefined,signed-integer-overflow,pointe
 add_executable(3-1 contest03/1/1.cpp)
 add_executable(3-2 contest03/2/2.cpp)
 add_executable(3-3 contest03/3/3.cpp)
-add_executable(3-4 contest03/4/4.cpp)
+add_executable(3-4 contest03/4/4.cpp contest03/4/cmc_complex.h contest03/4/cmc_complex_stack.h contest03/4/cmc_complex_eval.h)
 
 #add_executable(4-1 contest04/1/1.cpp)
 #add_executable(4-2 contest04/2/2.cpp)
