@@ -29,7 +29,7 @@ set(CMAKE_CXX_FLAGS "-fsanitize=address,undefined,signed-integer-overflow,pointe
 #add_executable(4-2 contest04/2/2.cpp)
 #add_executable(4-3 contest04/3/3.cpp)
 #add_executable(4-4 contest04/4/4.cpp)
-#add_executable(4-5 contest04/5/5.cpp)
+add_executable(4-5 contest04/5/5.cpp)
 
 #add_executable(5-1 contest05/1/1.cpp)
 #add_executable(5-2 contest05/2/2.cpp)
@@ -37,9 +37,9 @@ set(CMAKE_CXX_FLAGS "-fsanitize=address,undefined,signed-integer-overflow,pointe
 #add_executable(5-4 contest05/4/4.cpp)
 #add_executable(5-5 contest05/5/5.cpp)
 
-add_executable(6-1 contest06/1/1.cpp)
-add_executable(6-2 contest06/2/2.cpp)
-add_executable(6-3 contest06/3/3.cpp)
-add_executable(6-4 contest06/4/4.cpp)
-add_executable(6-5 contest06/5/5.cpp)
+#add_executable(6-1 contest06/1/1.cpp)
+#add_executable(6-2 contest06/2/2.cpp)
+#add_executable(6-3 contest06/3/3.cpp)
+#add_executable(6-4 contest06/4/4.cpp)
+#add_executable(6-5 contest06/5/5.cpp)
 
