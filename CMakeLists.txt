@@ -43,3 +43,9 @@ add_executable(4-5 contest04/5/5.cpp)
 #add_executable(6-4 contest06/4/4.cpp)
 #add_executable(6-5 contest06/5/5.cpp)
 
+add_executable(7-1 contest07/1/1.cpp)
+add_executable(7-2 contest07/2/2.cpp)
+add_executable(7-3 contest07/3/3.cpp)
+add_executable(7-4 contest07/4/4.cpp)
+add_executable(7-5 contest07/5/5.cpp)
+
