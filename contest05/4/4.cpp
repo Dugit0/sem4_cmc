@@ -6,34 +6,39 @@
 #include <string>
 #include <set>
 
-
+const unsigned long long MOD = 4294967161;
 int
 main(void)
 {
-    unsigned long long max_row = 0;
-    unsigned long long max_col = 0;
     std::map<unsigned long long, std::map<unsigned long long, unsigned long long>> dict;
 
     unsigned long long cur_row = 0;
     unsigned long long cur_col = 0;
     unsigned long long cur_num = 0;
+    bool flag_sum = false;
     while (std::cin >> cur_row) {
         std::cin >> cur_col;
         std::cin >> cur_num;
-        dict[cur_row][cur_col] = cur_num;
-        max_row = std::max(max_row, cur_row);
-        max_col = std::max(max_col, cur_col);
+        if (cur_row == 0 && cur_col == 0 && cur_num == 4294967161) {
+            flag_sum = true;
+        }
+        if (flag_sum) {
+            if (dict.find(cur_row) == dict.end() || dict[cur_row].find(cur_col) == dict[cur_row].end()) {
+                dict[cur_row][cur_col] = cur_num % MOD;
+            } else {
+                dict[cur_row][cur_col] = (dict[cur_row][cur_col] + cur_num) % MOD;
+            }
+        } else {
+            dict[cur_row][cur_col] = cur_num % MOD;
+        }
     }
 
-    for (unsigned long long i = 0; i < max_row; i++) {
-        for (unsigned long long j = 0; j < max_col; j++) {
-           if (dict.find(i) == dict.end() || dict[i].find(j) == dict[i].end()) {
-               std::cout << "0 ";
-           } else {
-               std::cout << dict[i][j] << " ";
-           }
+    for (auto i = dict.begin(); i != dict.end(); i++) {
+        for (auto j = i->second.begin(); j != i->second.end(); j++) {
+            if (j->second != 0) {
+                std::cout << i->first << " " << j->first << " " << j->second << std::endl;
+            }
         }
-        std::cout << std::endl;
     }
 
     return 0;
