@@ -25,32 +25,38 @@ main(void)
             flag_mul = true;
         }
         if (flag_mul) {
-            dict2[cur_col][cur_row] = cur_num % MOD;
+            if (dict1.find(cur_row) != dict1.end()) {
+                for (auto i = dict1[cur_row].begin(); i != dict1[cur_row].end(); i++) {
+                    dict2[i->first][cur_col] = (dict2[i->first][cur_col] + i->second * cur_num) % MOD;
+                }
+            }
         } else {
-            dict1[cur_row][cur_col] = cur_num % MOD;
+            dict1[cur_col][cur_row] = cur_num % MOD;
         }
     }
 //    std::cout << "Fin inp" << std::endl;
-    for (auto i = dict1.begin(); i != dict1.end(); i++) {
-        for (auto j = dict2.begin(); j != dict2.end(); j++) {
-//            std::cout << i->first << " " << j->first << std::endl;
-            auto str_it = i->second.begin();
-            auto col_it = j->second.begin();
-            unsigned long long ans = 0;
-            while (str_it != i->second.end() && col_it != j->second.end()) {
-                if (str_it->first == col_it->first) {
-                    unsigned long long tmp = (str_it->second * col_it->second) % MOD;
-                    ans = (ans + tmp) % MOD;
-                    str_it++;
-                    col_it++;
-                } else if (str_it->first < col_it->first) {
-                    str_it++;
-                } else if (str_it->first > col_it->first) {
-                    col_it++;
-                }
-            }
-            if (ans != 0) {
-                std::cout << i->first << " " << j->first << " " << ans << std::endl;
+//    for (auto i = dict1.begin(); i != dict1.end(); i++) {
+//        for (auto j = dict2.begin(); j != dict2.end(); j++) {
+////            std::cout << i->first << " " << j->first << std::endl;
+//            auto str_it = i->second.begin();
+//            auto col_it = j->second.begin();
+//            unsigned long long ans = 0;
+//            while (str_it != i->second.end() && col_it != j->second.end()) {
+//                if (str_it->first == col_it->first) {
+//                    unsigned long long tmp = (str_it->second * col_it->second) % MOD;
+//                    ans = (ans + tmp) % MOD;
+//                    str_it++;
+//                    col_it++;
+//                } else if (str_it->first < col_it->first) {
+//                    str_it++;
+//                } else if (str_it->first > col_it->first) {
+//                    col_it++;
+//                }
+//            }
+    for (auto i = dict2.begin(); i != dict2.end(); i++) {
+        for (auto j = i->second.begin(); j != i->second.end(); j++) {
+            if (j->second != 0) {
+                std::cout << i->first << " " << j->first << " " << j->second << std::endl;
             }
         }
     }
