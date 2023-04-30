@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.24)
 project(code)
 
 set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_FLAGS "-fsanitize=address,undefined,signed-integer-overflow,pointer-compare,pointer-subtract,leak,bounds,pointer-overflow -O2 -Wall -std=gnu++2b -lm")
-#set(CMAKE_CXX_FLAGS "-O2 -Wall -std=gnu++2b -lm")
+#set(CMAKE_CXX_FLAGS "-fsanitize=address,undefined,signed-integer-overflow,pointer-compare,pointer-subtract,leak,bounds,pointer-overflow -O2 -Wall -std=gnu++2b -lm")
+set(CMAKE_CXX_FLAGS "-O2 -Wall -std=gnu++2b -lm")
 
 #add_executable(1-1 contest01/1/1.cpp)
 #add_executable(1-2 contest01/2/2.cpp)
@@ -53,9 +53,9 @@ set(CMAKE_CXX_FLAGS "-fsanitize=address,undefined,signed-integer-overflow,pointe
 
 #add_executable(8-1 contest08/1/1.cpp)
 #add_executable(8-2 contest08/2/2.cpp)
-#add_executable(8-3 contest08/3/3.cpp)
-#add_executable(8-4 contest08/4/4.cpp)
-#add_executable(8-5 contest08/5/5.cpp)
+add_executable(8-3 contest08/3/3.cpp)
+add_executable(8-4 contest08/4/4.cpp)
+add_executable(8-5 contest08/5/5.cpp)
 
 #add_executable(9-1 contest09/1/1.cpp)
 #add_executable(9-2-1 contest09/2/2_1.cpp)
@@ -64,9 +64,9 @@ set(CMAKE_CXX_FLAGS "-fsanitize=address,undefined,signed-integer-overflow,pointe
 #add_executable(9-4 contest09/4/4.cpp)
 #add_executable(9-5 contest09/5/5.cpp)
 
-add_executable(10-1 contest10/1/1.cpp)
-add_executable(10-2 contest10/2/2.cpp)
-add_executable(10-3 contest10/3/3.cpp)
-add_executable(10-4 contest10/4/4.cpp)
-add_executable(10-5 contest10/5/5.cpp)
+#add_executable(10-1 contest10/1/1.cpp)
+#add_executable(10-2 contest10/2/2.cpp)
+#add_executable(10-3 contest10/3/3.cpp)
+#add_executable(10-4 contest10/4/4.cpp)
+#add_executable(10-5 contest10/5/5.cpp)
 
