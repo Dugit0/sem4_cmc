@@ -1,0 +1,42 @@
+S = aXPQ
+P = YXP | ε
+Q = UVQ | ε
+aY = aa
+aU = a0
+0U = 00
+0X = 0b
+bX = bb
+bV = b1
+1V = 11
+XY = YX
+UY = YU
+VY = YV
+XU = UX
+VU = UV
+VX = XV
+
+
+aY = aa
+
+aU = a0
+0U = 00
+
+0X = 0b
+bX = bb
+
+bV = b1
+1V = 11
+
+aXYXYXYXUV
+aaaa0bbbb1
+
+a^n 0^m b^n 1^m
+n, m > 0
+
+S -> LD
+L -> aLb | ab
+D -> ND1 | N1
+bN -> Nb
+aN -> a0
+0N -> 00
+
