@@ -11,6 +11,9 @@
 int
 space_skip(int buf)
 {
+    if (buf == EOF) {
+        return buf;
+    }
     while (std::isspace(buf)) {
         buf = std::getchar();
     }
@@ -21,7 +24,10 @@ space_skip(int buf)
 int
 value_skip(int buf)
 {
-    while (!(std::isspace(buf))) {
+    if (buf == EOF) {
+        return buf;
+    }
+    while (!std::isspace(buf) && buf != EOF) {
         buf = std::getchar();
     }
     return buf;
@@ -42,13 +48,14 @@ func(int buf)
         buf = std::getchar();
     }
     if (count_zero == 0 || count_ones == 0) {
+        std::cout << "0" << std::endl;
         buf = value_skip(buf);
         return buf;
     }
 //    std::cout << "deb : " << count_zero << " " << count_ones << std::endl;
 //    std::cout << "deb : '" <<  (char) buf << "' (code = " << buf << ")" << std::endl;
 
-    while (!std::isspace(buf)) {
+    while (!std::isspace(buf) && buf != EOF) {
         long long tmp_count_zero = 0;
         long long tmp_count_ones = 0;
         while (buf == '0') {
@@ -77,8 +84,11 @@ main(void)
     int buf = std::getchar();
     buf = space_skip(buf);
     while (buf != EOF) {
-        buf = func(buf);
         buf = space_skip(buf);
+        if (buf == EOF) {
+            break;
+        }
+        buf = func(buf);
     }
 //    std::cout << std::isspace('a') << std::endl;
 
