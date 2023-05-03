@@ -9,19 +9,28 @@
 #include <new>
 
 int
-space_skip()
+space_skip(int buf)
 {
-    int buf = std::getchar();
     while (std::isspace(buf)) {
         buf = std::getchar();
     }
     return buf;
 }
 
+
+int
+value_skip(int buf)
+{
+    while (!(std::isspace(buf))) {
+        buf = std::getchar();
+    }
+    return buf;
+}
+
+
 int
 func(int buf)
 {
-    int flag_repite = 0;
     long long count_zero = 0;
     long long count_ones = 0;
     while (buf == '0') {
@@ -32,11 +41,14 @@ func(int buf)
         count_ones++;
         buf = std::getchar();
     }
-    std::cout << count_zero << " " << count_ones << std::endl;
-    std::cout << buf << std::endl;
+    if (count_zero == 0 || count_ones == 0) {
+        buf = value_skip(buf);
+        return buf;
+    }
+//    std::cout << "deb : " << count_zero << " " << count_ones << std::endl;
+//    std::cout << "deb : '" <<  (char) buf << "' (code = " << buf << ")" << std::endl;
 
     while (!std::isspace(buf)) {
-        flag_repite = 1;
         long long tmp_count_zero = 0;
         long long tmp_count_ones = 0;
         while (buf == '0') {
@@ -48,28 +60,25 @@ func(int buf)
             buf = std::getchar();
         }
         if (count_ones != tmp_count_ones || count_zero != tmp_count_zero) {
-            std::cout << tmp_count_zero << " " << tmp_count_ones << std::endl;
+//            std::cout << "deb : " << tmp_count_zero << " " << tmp_count_ones << std::endl;
             std::cout << "0" << std::endl;
-            while (!std::isspace(buf)) {
-                buf = std::getchar();
-            }
+            buf = value_skip(buf);
             return buf;
         }
-        buf = std::getchar();
     }
     std::cout << "1" << std::endl;
     return buf;
 }
 
+
 int
 main(void)
 {
-    int buf = space_skip();
+    int buf = std::getchar();
+    buf = space_skip(buf);
     while (buf != EOF) {
-        while (!std::isspace(buf)) {
-            func(buf);
-        }
-        buf = space_skip();
+        buf = func(buf);
+        buf = space_skip(buf);
     }
 //    std::cout << std::isspace('a') << std::endl;
 
