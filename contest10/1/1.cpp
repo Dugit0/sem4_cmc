@@ -9,6 +9,16 @@
 #include <new>
 
 
+size_t
+my_len(std::string str)
+{
+    if (str == "_") {
+        return 0;
+    } else {
+        return str.size();
+    }
+}
+
 bool
 is_not_short_gram(std::vector<std::pair<std::string, std::string>> rules)
 {
@@ -36,7 +46,7 @@ is_not_short_gram(std::vector<std::pair<std::string, std::string>> rules)
 
 
 bool
-is_left_gram(std::vector<std::pair<std::string, std::string>> rules)
+is_right_gram(std::vector<std::pair<std::string, std::string>> rules)
 {
     for (auto i = rules.begin(); i != rules.end(); i++) {
         std::string right = i->second;
@@ -55,7 +65,7 @@ is_left_gram(std::vector<std::pair<std::string, std::string>> rules)
 
 
 bool
-is_right_gram(std::vector<std::pair<std::string, std::string>> rules)
+is_left_gram(std::vector<std::pair<std::string, std::string>> rules)
 {
     for (auto i = rules.begin(); i != rules.end(); i++) {
         std::string right = i->second;
@@ -72,57 +82,167 @@ is_right_gram(std::vector<std::pair<std::string, std::string>> rules)
     return true;
 }
 
+bool
+is_reg_gram(std::vector<std::pair<std::string, std::string>> rules)
+{
+    return is_right_gram(rules) || is_left_gram(rules);
+}
+
 
 bool
-is_auto_left_gram(std::vector<std::pair<std::string, std::string>> rules)
+is_only_auto_right_gram(std::vector<std::pair<std::string, std::string>> rules)
+{
+    for (auto i = rules.begin(); i != rules.end(); i++) {
+        std::string right = i->second;
+        if (my_len(right) == 0) {
+            return false;
+        } else if (my_len(right) == 1) {
+            if (std::isupper(right[0])) {
+                return false;
+            }
+        } else if (my_len(right) == 2) {
+            if (std::isupper(right[0]) || !std::isupper(right[1])) {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool
+is_auto_right_gram(std::vector<std::pair<std::string, std::string>> rules)
 {
     bool flag_null = false;
     for (auto i = rules.begin(); i != rules.end(); i++) {
-        if (i->first.size() == 1 && i->first[0] == 'S' && i->second.size() == 1 && i->second[0] == '_') {
-            flag_null = true;
-            break;
+        std::string right = i->second;
+        if (my_len(right) == 0) {
+            if (i->first == "S") {
+                flag_null = true;
+            } else {
+                return false;
+            }
         }
     }
     if (flag_null) {
+        std::vector<std::pair<std::string, std::string>> new_rules = {};
         for (auto i = rules.begin(); i != rules.end(); i++) {
+            if (i->first != "S") {
+                new_rules.push_back(*i);
+            }
             for (auto j = i->second.begin(); j != i->second.end(); j++) {
                 if (*j == 'S') {
                     return false;
                 }
             }
         }
+        return is_only_auto_right_gram(new_rules);
+    } else {
+        return is_only_auto_right_gram(rules);
     }
-    // Переписать!
-//    for (auto i = rules.begin(); i != rules.end(); i++) {
-//        std::string right = i->second;
-//        if (flag_null) {
-//            if (i->first.size() == 1 && i->first[0] == 'S') {
-//                if (!(right.size() == 1 && (std::isupper(right[0]) || right[0] == '_'))) {
-//                    return false;
-//                }
-//            }
-//        } else {
-//            if (!((right.size() == 1 && std::islower(right[0])) ||
-//                  (right.size() == 2 && std::isupper(right[0]) && !std::isupper(right[1])))) {
-//                return false;
-//            }
-//        }
-//    }
-    return true;
 }
 
 
+
+
 bool
-is_auto_right_gram(std::vector<std::pair<std::string, std::string>> rules)
+is_only_auto_left_gram(std::vector<std::pair<std::string, std::string>> rules)
 {
     for (auto i = rules.begin(); i != rules.end(); i++) {
         std::string right = i->second;
-        if (!((right.size() == 1 && !std::isupper(right[0])) ||
-              (right.size() == 2 && !std::isupper(right[0]) && std::isupper(right[1])))) {
+        if (my_len(right) == 0) {
+            return false;
+        } else if (my_len(right) == 1) {
+            if (std::isupper(right[0])) {
+                return false;
+            }
+        } else if (my_len(right) == 2) {
+            if (!std::isupper(right[0]) || std::isupper(right[1])) {
+                return false;
+            }
+        } else {
             return false;
         }
     }
     return true;
+}
+
+bool
+is_auto_left_gram(std::vector<std::pair<std::string, std::string>> rules)
+{
+    bool flag_null = false;
+    for (auto i = rules.begin(); i != rules.end(); i++) {
+        std::string right = i->second;
+        if (my_len(right) == 0) {
+            if (i->first == "S") {
+                flag_null = true;
+            } else {
+                return false;
+            }
+        }
+    }
+    if (flag_null) {
+        std::vector<std::pair<std::string, std::string>> new_rules = {};
+        for (auto i = rules.begin(); i != rules.end(); i++) {
+            if (i->first != "S") {
+                new_rules.push_back(*i);
+            }
+            for (auto j = i->second.begin(); j != i->second.end(); j++) {
+                if (*j == 'S') {
+                    return false;
+                }
+            }
+        }
+        return is_only_auto_left_gram(new_rules);
+    } else {
+        return is_only_auto_left_gram(rules);
+    }
+}
+
+
+
+//bool
+//is_auto_left_gram(std::vector<std::pair<std::string, std::string>> rules)
+//{
+//    bool flag_null = false;
+//    for (auto i = rules.begin(); i != rules.end(); i++) {
+//        std::string right = i->second;
+//        if (my_len(right) == 0) {
+//            if (i->first == "S") {
+//                flag_null = true;
+//            } else {
+//                return false;
+//            }
+//        } else if (my_len(right) == 1) {
+//            if (std::isupper(right[0])) {
+//                return false;
+//            }
+//        } else if (my_len(right) == 2) {
+//            if (!std::isupper(right[0]) || std::isupper(right[1])) {
+//                return false;
+//            }
+//        } else {
+//            return false;
+//        }
+//    }
+//    if (flag_null) {
+//        for (auto i = rules.begin(); i != rules.end(); i++) {
+//            for (auto j = i->second.begin(); j != i->second.end(); j++) {
+//                if (*j == 'S') {
+//                    return false;
+//                }
+//            }
+//        }
+//    }
+//    return true;
+//}
+
+
+bool
+is_auto_gram(std::vector<std::pair<std::string, std::string>> rules)
+{
+    return is_auto_right_gram(rules) || is_auto_left_gram(rules);
 }
 
 
@@ -136,7 +256,19 @@ main(void)
         rules.push_back(new_pair);
     }
 
-
+    if (!is_not_short_gram(rules) && !is_reg_gram(rules)) {
+        std::cout << "2" << std::endl;
+    } else if (is_not_short_gram(rules) && !is_reg_gram(rules)) {
+        std::cout << "21" << std::endl;
+    } else if (is_left_gram(rules) && !is_auto_left_gram(rules)) {
+        std::cout << "31" << std::endl;
+    } else if (is_auto_left_gram(rules)) {
+        std::cout << "311" << std::endl;
+    } else if (is_right_gram(rules) && !is_auto_right_gram(rules)) {
+        std::cout << "32" << std::endl;
+    } else if (is_auto_right_gram(rules)) {
+        std::cout << "321" << std::endl;
+    }
     return 0;
 }
 
